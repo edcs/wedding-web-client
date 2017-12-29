@@ -36,6 +36,16 @@ const config = {
           { loader: 'postcss-loader' },
         ],
       },
+      {
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8000,
+            name: 'images/[name].[ext]',
+          },
+        },
+      },
     ],
   },
   resolve: {
