@@ -1,6 +1,9 @@
+const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PurifyCssPlugin = require('purifycss-webpack');
 
 const config = {
   entry: [
@@ -54,6 +57,9 @@ const config = {
         collapseWhitespace: true,
       },
       template: path.resolve(__dirname, 'src/templates/index.ejs'),
+    }),
+    new PurifyCssPlugin({
+      paths: glob.sync(path.join(__dirname, 'src/*.jsx')),
     }),
   ],
   devServer: {
