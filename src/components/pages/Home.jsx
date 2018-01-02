@@ -1,11 +1,9 @@
 import React from 'react';
 
-import Navigation from '../molecules/Navigation';
-import Hero from '../molecules/Hero';
+import Header from '../organisms/Header';
 
 const Home = () => [
-  <Navigation />,
-  <Hero />,
+  <Header />,
 ];
 
 export default Home;
