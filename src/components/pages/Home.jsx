@@ -4,6 +4,7 @@ import { Container, Col, Row } from 'glamorous-grid';
 import GiftList from '../organisms/GiftList';
 import Header from '../organisms/Header';
 import Reception from '../organisms/Reception';
+import Rsvp from '../organisms/Rsvp';
 import Service from '../organisms/Service';
 
 const Home = () => (
@@ -15,6 +16,7 @@ const Home = () => (
           <Service />
           <Reception />
           <GiftList />
+          <Rsvp />
         </Col>
       </Row>
     </Container>
