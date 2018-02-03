@@ -7,7 +7,7 @@ const Navigation = () => (
   <NavigationBar>
     <NavigationLink>Service</NavigationLink>
     <NavigationLink>Reception</NavigationLink>
-    <NavigationLink>Gift List</NavigationLink>
+    <NavigationLink>Gift Lists</NavigationLink>
     <NavigationLink>RSVP</NavigationLink>
   </NavigationBar>
 );
