@@ -3,14 +3,18 @@ import { Container, Col, Row } from 'glamorous-grid';
 
 import Footer from '../atoms/Footer';
 import GiftList from '../organisms/GiftList';
-import Header from '../organisms/Header';
+import Hero from '../molecules/Hero';
+import Navigation from '../molecules/Navigation';
 import Reception from '../organisms/Reception';
 import Rsvp from '../organisms/Rsvp';
 import Service from '../organisms/Service';
 
 const Home = () => (
   <Fragment>
-    <Header />
+    <Fragment>
+      <Navigation />
+      <Hero />
+    </Fragment>
     <Container>
       <Row justifyContent="center">
         <Col span={8 / 12}>
