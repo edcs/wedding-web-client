@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Container, Col, Row } from 'glamorous-grid';
 
+import Footer from '../atoms/Footer';
 import GiftList from '../organisms/GiftList';
 import Header from '../organisms/Header';
 import Reception from '../organisms/Reception';
@@ -20,6 +21,7 @@ const Home = () => (
         </Col>
       </Row>
     </Container>
+    <Footer />
   </Fragment>
 );
 
