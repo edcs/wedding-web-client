@@ -5,6 +5,7 @@
     "stage-0"
   ],
   "plugins": [
+    "inline-dotenv",
     "transform-class-properties",
     "transform-decorators",
     "transform-react-constant-elements",
