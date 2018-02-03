@@ -4,7 +4,7 @@ import React from 'react';
 import glamorous from 'glamorous';
 
 const Wrapper = glamorous.div(`
-  mt-10
+  mt-11
   mb-11
   ml-auto
   mr-auto

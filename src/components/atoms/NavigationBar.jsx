@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import glamorous from 'glamorous';
 
-const Nav = glamorous.nav('fixed pin-t pin-r pin-l bg-black text-center p-6 shadow-md z-10');
+const Nav = glamorous.nav('fixed pin-t pin-r pin-l bg-black text-center p-6 shadow-md z-50');
 
 const NavigationBar = ({ children }) => (
   <Nav>{children}</Nav>
