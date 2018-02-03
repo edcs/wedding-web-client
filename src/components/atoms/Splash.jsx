@@ -3,7 +3,7 @@ import glamorous from 'glamorous';
 
 import image from '../../assets/images/splash.jpg';
 
-const Svg = glamorous.svg({
+const Svg = glamorous.svg('shadow-md', {
   width: '100vw',
   height: '100vh',
   overflow: 'hidden',

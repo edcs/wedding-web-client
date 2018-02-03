@@ -1,7 +1,7 @@
 import React from 'react';
 import glamorous from 'glamorous';
 
-const Svg = glamorous.svg('z-10', {
+const Svg = glamorous.svg('z-5', {
   width: '50%',
   height: 'auto',
   marginTop: 71,

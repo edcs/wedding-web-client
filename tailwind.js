@@ -91,7 +91,7 @@ let colors = {
   'teal-darkest': '#0d3331',
   'teal-darker': '#20504f',
   'teal-dark': '#38a89d',
-  'teal': '#4dc0b5',
+  'teal': '#40e0d0',
   'teal-light': '#64d5ca',
   'teal-lighter': '#a0f0ed',
   'teal-lightest': '#e8fffe',
@@ -300,6 +300,7 @@ module.exports = {
   tracking: {
     'tight': '-0.05em',
     'normal': '0',
+    'medium': '0.025em',
     'wide': '0.05em',
   },
 
@@ -633,6 +634,9 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '9': '2.5rem',
+    '10': '3rem',
+    '11': '3.5rem',
   },
 
 
