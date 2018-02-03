@@ -5,10 +5,10 @@ import NavigationLink from '../atoms/NavigationLink';
 
 const Navigation = () => (
   <NavigationBar>
-    <NavigationLink>Service</NavigationLink>
-    <NavigationLink>Reception</NavigationLink>
-    <NavigationLink>Gift Lists</NavigationLink>
-    <NavigationLink>RSVP</NavigationLink>
+    <NavigationLink href="/service">Service</NavigationLink>
+    <NavigationLink href="/reception">Reception</NavigationLink>
+    <NavigationLink href="/gift-lists">Gift Lists</NavigationLink>
+    <NavigationLink href="/rsvp">RSVP</NavigationLink>
   </NavigationBar>
 );
 

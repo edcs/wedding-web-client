@@ -9,7 +9,7 @@ const GiftList = () => (
   <Fragment>
     <Row>
       <Col>
-        <Heading2>Gift Lists</Heading2>
+        <Heading2 id="gift-lists">Gift Lists</Heading2>
       </Col>
     </Row>
     <Row>

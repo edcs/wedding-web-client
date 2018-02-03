@@ -9,7 +9,7 @@ const Rsvp = () => (
   <Fragment>
     <Row>
       <Col>
-        <Heading2>RSVP</Heading2>
+        <Heading2 id="rsvp">RSVP</Heading2>
       </Col>
     </Row>
     <Row>

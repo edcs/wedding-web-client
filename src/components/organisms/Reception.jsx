@@ -9,7 +9,7 @@ const Reception = () => (
   <Fragment>
     <Row>
       <Col>
-        <Heading2>Reception</Heading2>
+        <Heading2 id="reception">Reception</Heading2>
       </Col>
     </Row>
     <Row>

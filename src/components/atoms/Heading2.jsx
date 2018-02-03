@@ -37,8 +37,14 @@ const Rule = glamorous.div(({ theme }) => ({
   zIndex: 10,
 }));
 
-const Heading2 = ({ children }) => (
+const Hidden = glamorous.div({
+  position: 'absolute',
+  top: -115,
+});
+
+const Heading2 = ({ children, id }) => (
   <Wrapper>
+    <Hidden id={id} />
     <H2>{children}</H2>
     <Rule />
   </Wrapper>
@@ -46,6 +52,7 @@ const Heading2 = ({ children }) => (
 
 Heading2.propTypes = {
   children: PropTypes.element,
+  id: PropTypes.string.isRequired,
 };
 
 Heading2.defaultProps = {

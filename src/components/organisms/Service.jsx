@@ -9,7 +9,7 @@ const Service = () => (
   <Fragment>
     <Row>
       <Col>
-        <Heading2>The Service</Heading2>
+        <Heading2 id="service">The Service</Heading2>
       </Col>
     </Row>
     <Row>
