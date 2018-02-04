@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import { Row, Col } from 'glamorous-grid';
 
 import Heading2 from '../atoms/Heading2';
-import InviteLookup from './InviteLookup';
+// import InviteLookup from '../molecules/InviteLookup';
+import NameList from '../molecules/NameList';
 
 const Rsvp = () => (
   <Fragment>
@@ -13,7 +14,13 @@ const Rsvp = () => (
     </Row>
     <Row>
       <Col>
-        <InviteLookup />
+        <NameList
+          names={[
+            { id: 1, name: 'Edward Coleridge Smith' },
+            { id: 2, name: 'Another Person' },
+          ]}
+          onSelect={id => console.log(id)}
+        />
       </Col>
     </Row>
   </Fragment>
