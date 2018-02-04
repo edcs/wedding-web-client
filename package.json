@@ -7,6 +7,7 @@
     "animated-scroll-to": "^1.1.8",
     "bugsnag-js": "^4.2.0",
     "bugsnag-react": "^1.0.0",
+    "formsy-react": "^1.1.2",
     "glamor": "^2.20.40",
     "glamorous": "^4.11.2",
     "glamorous-grid": "^1.0.2",
