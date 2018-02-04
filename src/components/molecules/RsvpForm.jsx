@@ -1,9 +1,10 @@
 import Formsy from 'formsy-react';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 
 import ButtonPrimaryBig from '../atoms/ButtonPrimaryBig';
 import Guest from './Guest';
+import Heading3 from '../atoms/Heading3';
 
 class RsvpForm extends PureComponent {
   constructor(props) {
@@ -15,8 +16,8 @@ class RsvpForm extends PureComponent {
     this.setState({ submitButtonDisabled: true });
   }
 
-  onSubmitHandler() {
-    //
+  onSubmitHandler(data) {
+    console.log(data);
   }
 
   onValidHandler() {
@@ -25,24 +26,33 @@ class RsvpForm extends PureComponent {
 
   render() {
     return (
-      <Formsy
-        onInvalid={() => this.onInvalidHandler()}
-        onSubmit={data => this.onSubmitHandler(data)}
-        onValid={() => this.onValidHandler()}
-      >
-        {this.props.guests.map(({ id, name }) => (<Guest id={id} name={name} />))}
-        <ButtonPrimaryBig>Send RSVP</ButtonPrimaryBig>
-      </Formsy>
+      <Fragment>
+        <Heading3>
+          Now it's time to send your RSVP:<br /><br />
+        </Heading3>
+        <Formsy
+          onInvalid={() => this.onInvalidHandler()}
+          onSubmit={data => this.onSubmitHandler(data)}
+          onValid={() => this.onValidHandler()}
+        >
+          {this.props.names.map(({ id, name }) => (<Guest id={id} name={name} />))}
+          <ButtonPrimaryBig
+            disabled={this.state.submitButtonDisabled}
+          >
+            Send RSVP
+          </ButtonPrimaryBig>
+        </Formsy>
+      </Fragment>
     );
   }
 }
 
 RsvpForm.propTypes = {
-  guests: PropTypes.array,
+  names: PropTypes.array,
 };
 
 RsvpForm.defaultProps = {
-  guests: [],
+  names: [],
 };
 
 export default RsvpForm;

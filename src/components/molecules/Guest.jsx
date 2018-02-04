@@ -3,7 +3,6 @@ import React, { Fragment, PureComponent } from 'react';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { withTheme } from 'glamorous';
 
-import Heading3 from '../atoms/Heading3';
 import Heading4 from '../atoms/Heading4';
 import InputHidden from '../atoms/InputHidden';
 import InputLabel from '../atoms/InputLabel';
@@ -23,9 +22,6 @@ class Guest extends PureComponent {
   render() {
     return (
       <Fragment>
-        <Heading3>
-          Now it's time to send your RSVP:<br /><br />
-        </Heading3>
         <InputWrapper>
           <InputLabel>Name</InputLabel>
           <InputText

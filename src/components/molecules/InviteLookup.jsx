@@ -35,7 +35,7 @@ class InviteLookup extends PureComponent {
           onValid={() => this.onValidHandler()}
         >
           <Lookup
-            buttonDisabled={this.state.submitButtonDisabled}
+            buttonDisabled={this.state.submitButtonDisabled || this.props.httpRequestInProgress}
             name="search"
             placeholder="Enter your name, e.g. 'Edward' or 'Coleridge Smith' and press Search"
             required
@@ -47,10 +47,12 @@ class InviteLookup extends PureComponent {
 }
 
 InviteLookup.propTypes = {
+  httpRequestInProgress: PropTypes.bool,
   lookup: PropTypes.func,
 };
 
 InviteLookup.defaultProps = {
+  httpRequestInProgress: false,
   lookup: () => Promise.resolve(),
 };
 
