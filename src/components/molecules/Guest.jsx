@@ -4,6 +4,7 @@ import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import { withTheme } from 'glamorous';
 
 import Heading4 from '../atoms/Heading4';
+import HorizontalRule from '../atoms/HorizontalRule';
 import InputHidden from '../atoms/InputHidden';
 import InputLabel from '../atoms/InputLabel';
 import InputText from '../atoms/InputText';
@@ -108,6 +109,7 @@ class Guest extends PureComponent {
           name={`dessert[${this.props.id}]`}
           value={this.state.dessert}
         />
+        {(this.props.index !== this.props.length - 1) ? <HorizontalRule /> : null}
       </Fragment>
     );
   }
@@ -115,6 +117,8 @@ class Guest extends PureComponent {
 
 Guest.propTypes = {
   id: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
+  length: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   theme: PropTypes.object.isRequired,
 };

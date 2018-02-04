@@ -35,7 +35,14 @@ class RsvpForm extends PureComponent {
           onSubmit={data => this.onSubmitHandler(data)}
           onValid={() => this.onValidHandler()}
         >
-          {this.props.names.map(({ id, name }) => (<Guest id={id} name={name} />))}
+          {this.props.names.map(({ id, name }, index) => (
+            <Guest
+              id={id}
+              index={index}
+              length={this.props.names.length}
+              name={name}
+            />
+          ))}
           <ButtonPrimaryBig
             disabled={this.state.submitButtonDisabled}
           >
