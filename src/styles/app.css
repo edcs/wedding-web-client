@@ -1,2 +1,6 @@
 @tailwind preflight;
 @tailwind utilities;
+
+input:focus, button:focus {
+  outline: none;
+}
