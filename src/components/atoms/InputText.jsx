@@ -17,6 +17,11 @@ const Input = glamorous.input(`
 `);
 
 class InputText extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.props.setValue(props.value);
+  }
+
   onChangeHandler(event) {
     this.props.setValue(event.currentTarget.value);
   }
@@ -30,21 +35,25 @@ class InputText extends PureComponent {
         placeholder={this.props.placeholder}
         required={this.props.required}
         type="text"
+        value={this.props.getValue()}
       />
     );
   }
 }
 
 InputText.propTypes = {
+  getValue: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   setValue: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
 InputText.defaultProps = {
   placeholder: '',
   required: false,
+  value: '',
 };
 
 export default withFormsy(InputText);
