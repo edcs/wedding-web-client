@@ -8,6 +8,7 @@
     "axios": "^0.17.1",
     "bugsnag-js": "^4.2.0",
     "bugsnag-react": "^1.0.0",
+    "change-case-object": "^2.0.0",
     "formsy-react": "^1.1.2",
     "glamor": "^2.20.40",
     "glamorous": "^4.11.2",

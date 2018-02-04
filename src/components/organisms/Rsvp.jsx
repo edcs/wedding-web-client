@@ -1,6 +1,7 @@
 import { get } from 'axios';
 import React, { Fragment, PureComponent } from 'react';
 import { Row, Col } from 'glamorous-grid';
+import { camelCase } from 'change-case-object';
 
 import Heading2 from '../atoms/Heading2';
 import InviteLookup from '../molecules/InviteLookup';
@@ -12,6 +13,7 @@ class Rsvp extends PureComponent {
     super(props);
     this.state = {
       httpRequestInProgress: false,
+      invite: {},
       lookupNames: [],
       visibleSegment: 'InviteLookup',
     };
@@ -24,34 +26,39 @@ class Rsvp extends PureComponent {
         return (
           <InviteLookup
             httpRequestInProgress={this.state.httpRequestInProgress}
-            lookup={lookup => this.lookupInvitation(lookup)}
+            lookup={lookup => this.lookupGuests(lookup)}
           />
         );
       case 'NameList':
         return (
           <NameList
             names={this.state.lookupNames}
-            onSelect={() => this.setState({ visibleSegment: 'RsvpForm' })}
+            onSelect={id => this.lookupInvitation(id)}
           />
         );
       case 'RsvpForm':
         return (
-          <RsvpForm
-            names={[
-              { id: 1, name: 'Edward Coleridge Smith' },
-              { id: 2, name: 'Samantha Watson' },
-            ]}
-          />
+          <RsvpForm names={this.state.invite.invitees} />
         );
     }
   }
 
-  lookupInvitation(lookup) {
+  lookupGuests(lookup) {
     this.setState({ httpRequestInProgress: true }, () =>
       get(`${process.env.API}invitees?query=${lookup}`)
         .then(({ data }) => this.setState({
-          lookupNames: data,
+          lookupNames: camelCase(data),
           visibleSegment: 'NameList',
+        }))
+        .finally(() => this.setState({ httpRequestInProgress: false })));
+  }
+
+  lookupInvitation(id) {
+    this.setState({ httpRequestInProgress: true }, () =>
+      get(`${process.env.API}invites/${id}`)
+        .then(({ data }) => this.setState({
+          invite: camelCase(data),
+          visibleSegment: 'RsvpForm',
         }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
   }

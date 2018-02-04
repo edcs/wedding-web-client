@@ -11,8 +11,8 @@ const NameList = ({ names, onSelect }) => (
       Now choose your invite from the list below:
     </Heading3>
     <UnorderedList>
-      { names.map(({ id, name }) => (
-        <ListItem onClick={() => onSelect(id)}>{name}</ListItem>
+      { names.map(({ inviteId, name }) => (
+        <ListItem onClick={() => onSelect(inviteId)}>{name}</ListItem>
       ))}
     </UnorderedList>
   </Fragment>
