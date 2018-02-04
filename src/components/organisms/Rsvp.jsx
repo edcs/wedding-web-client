@@ -12,6 +12,7 @@ class Rsvp extends PureComponent {
     super(props);
     this.state = {
       httpRequestInProgress: false,
+      lookupNames: [],
       visibleSegment: 'InviteLookup',
     };
   }
@@ -29,10 +30,7 @@ class Rsvp extends PureComponent {
       case 'NameList':
         return (
           <NameList
-            names={[
-              { id: 1, name: 'Edward Coleridge Smith' },
-              { id: 2, name: 'Samantha Watson' },
-            ]}
+            names={this.state.lookupNames}
             onSelect={() => this.setState({ visibleSegment: 'RsvpForm' })}
           />
         );
@@ -51,11 +49,11 @@ class Rsvp extends PureComponent {
   lookupInvitation(lookup) {
     this.setState({ httpRequestInProgress: true }, () =>
       get(`${process.env.API}invitees?query=${lookup}`)
-        .then(data => console.log(data)));
-    // this.setState({ httpRequestInProgress: true }, () =>
-    //  (new Promise(resolve => setTimeout(() => resolve(lookup), 750)))
-    //    .then(() => this.setState({ visibleSegment: 'NameList' }))
-    //    .finally(() => this.setState({ httpRequestInProgress: false })));
+        .then(({ data }) => this.setState({
+          lookupNames: data,
+          visibleSegment: 'NameList',
+        }))
+        .finally(() => this.setState({ httpRequestInProgress: false })));
   }
 
   render() {
