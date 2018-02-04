@@ -1,3 +1,4 @@
+import { get } from 'axios';
 import React, { Fragment, PureComponent } from 'react';
 import { Row, Col } from 'glamorous-grid';
 
@@ -49,9 +50,12 @@ class Rsvp extends PureComponent {
 
   lookupInvitation(lookup) {
     this.setState({ httpRequestInProgress: true }, () =>
-      (new Promise(resolve => setTimeout(() => resolve(lookup), 750)))
-        .then(() => this.setState({ visibleSegment: 'NameList' }))
-        .finally(() => this.setState({ httpRequestInProgress: false })));
+      get(`${process.env.API}invitees?query=${lookup}`)
+        .then(data => console.log(data)));
+    // this.setState({ httpRequestInProgress: true }, () =>
+    //  (new Promise(resolve => setTimeout(() => resolve(lookup), 750)))
+    //    .then(() => this.setState({ visibleSegment: 'NameList' }))
+    //    .finally(() => this.setState({ httpRequestInProgress: false })));
   }
 
   render() {
