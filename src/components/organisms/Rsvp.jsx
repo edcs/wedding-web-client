@@ -15,7 +15,7 @@ class Rsvp extends PureComponent {
       httpRequestInProgress: false,
       invite: {},
       lookupNames: [],
-      visibleSegment: 'InviteLookup',
+      visibleSegment: 'NameList',
     };
   }
 
@@ -34,6 +34,7 @@ class Rsvp extends PureComponent {
           <NameList
             names={this.state.lookupNames}
             onSelect={id => this.lookupInvitation(id)}
+            onSearchAgain={() => this.searchAgain()}
           />
         );
       case 'RsvpForm':
@@ -61,6 +62,10 @@ class Rsvp extends PureComponent {
           visibleSegment: 'RsvpForm',
         }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
+  }
+
+  searchAgain() {
+    this.setState({ visibleSegment: 'InviteLookup' });
   }
 
   render() {
