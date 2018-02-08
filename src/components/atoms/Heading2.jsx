@@ -19,7 +19,8 @@ const H2 = glamorous.h2(`
   pl-8
   pr-8
   relative
-  text-5xl
+  text-3xl
+  md:text-5xl
   tracking-medium
   z-20
 `, ({ theme }) => ({

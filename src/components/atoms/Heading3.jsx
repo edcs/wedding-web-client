@@ -7,7 +7,8 @@ const H3 = glamorous.h3(`
   font-light
   italic
   mb-8
-  text-2xl
+  text-xl
+  md:text-2xl
   text-center
   tracking-wide
 `);

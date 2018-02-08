@@ -6,7 +6,8 @@ const H4 = glamorous.h4(`
   font-serif
   font-light
   mb-8
-  text-2xl
+  text-xl
+  md:text-2xl
   text-center
   tracking-wide
 `);
