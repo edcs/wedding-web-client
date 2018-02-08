@@ -4,6 +4,7 @@ import { Row, Col } from 'glamorous-grid';
 import { camelCase } from 'change-case-object';
 
 import CanYouMakeIt from '../molecules/CanYouMakeIt';
+import DeclineForm from '../molecules/DeclineForm';
 import Heading2 from '../atoms/Heading2';
 import InviteLookup from '../molecules/InviteLookup';
 import NameList from '../molecules/NameList';
@@ -42,7 +43,12 @@ class Rsvp extends PureComponent {
         return (
           <CanYouMakeIt
             onAccept={() => this.setState({ visibleSegment: 'RsvpForm' })}
+            onDecline={() => this.setState({ visibleSegment: 'DeclineForm' })}
           />
+        );
+      case 'DeclineForm':
+        return (
+          <DeclineForm />
         );
       case 'RsvpForm':
         return (

@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import React, { Fragment, PureComponent } from 'react';
 
 import ButtonPrimaryBig from '../atoms/ButtonPrimaryBig';
-import Guest from './Guest';
 import Heading3 from '../atoms/Heading3';
+import InputLabel from '../atoms/InputLabel';
+import InputTextArea from '../atoms/InputTextArea';
+import InputWrapper from '../atoms/InputWrapper';
 
-class RsvpForm extends PureComponent {
+class DeclineForm extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { submitButtonDisabled: false };
@@ -28,21 +30,20 @@ class RsvpForm extends PureComponent {
     return (
       <Fragment>
         <Heading3>
-          Now it's time to send your RSVP:<br /><br />
+          We're sorry you can't make it <span role="img" aria-label="sad face">😢</span>
         </Heading3>
         <Formsy
           onInvalid={() => this.onInvalidHandler()}
           onSubmit={data => this.onSubmitHandler(data)}
           onValid={() => this.onValidHandler()}
         >
-          {this.props.names.map(({ id, name }, index) => (
-            <Guest
-              id={id}
-              index={index}
-              length={this.props.names.length}
-              name={name}
+          <InputWrapper>
+            <InputLabel>Your Message</InputLabel>
+            <InputTextArea
+              name="message"
+              placeholder="Leave us a note letting us know you can't make it"
             />
-          ))}
+          </InputWrapper>
           <ButtonPrimaryBig
             disabled={this.state.submitButtonDisabled}
           >
@@ -54,14 +55,12 @@ class RsvpForm extends PureComponent {
   }
 }
 
-RsvpForm.propTypes = {
-  names: PropTypes.array,
+DeclineForm.propTypes = {
   onSubmit: PropTypes.func,
 };
 
-RsvpForm.defaultProps = {
-  names: [],
+DeclineForm.defaultProps = {
   onSubmit: () => {},
 };
 
-export default RsvpForm;
+export default DeclineForm;

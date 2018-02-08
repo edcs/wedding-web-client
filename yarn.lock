@@ -5152,6 +5152,12 @@ react-dom@^16.1.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-expanding-textarea@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/react-expanding-textarea/-/react-expanding-textarea-0.1.9.tgz#4c6048dba02dc1f89d7ed6fa00de2b546a0fd301"
+  dependencies:
+    prop-types "^15.6.0"
+
 react-hot-loader@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-3.1.3.tgz#6f92877326958c7cb0134b512474517869126082"
