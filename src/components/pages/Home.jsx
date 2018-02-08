@@ -21,7 +21,7 @@ const Home = () => (
           <Service />
           <Reception />
           <GiftList />
-          <Rsvp />
+          {/* <Rsvp /> */}
         </Col>
       </Row>
     </Container>
