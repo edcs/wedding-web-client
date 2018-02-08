@@ -15,8 +15,7 @@ const GiftList = () => (
     <Row>
       <Col>
         <Heading3>
-          Far far away, behind the word mountains, far from the countries
-          Vokalia and Consonantia, there live the blind texts.
+          Our gist lists are registered at Kuoni and John Lewis:
         </Heading3>
         <Row>
           <Col span={{ lg: 1 / 2 }}>
