@@ -1,10 +1,15 @@
+/* eslint-disable indent */
 import React from 'react';
 import glamorous from 'glamorous';
 
-const Svg = glamorous.svg('z-5', {
-  width: '50%',
+const Svg = glamorous.svg(`
+  z-5
+  sm:w-2/3
+  lg:w-1/2
+  xl:w-1/2
+`, {
   height: 'auto',
-  marginTop: 71,
+  width: '90%',
 });
 
 const Names = () => (
