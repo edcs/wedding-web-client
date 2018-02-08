@@ -1,16 +1,10 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions"]
-      }
-    }],
+    "env",
     "react",
     "stage-0"
   ],
   "plugins": [
-    "inline-dotenv",
-    "transform-async-to-generator",
     "transform-class-properties",
     "transform-decorators",
     "transform-react-constant-elements",

@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const PurifyCssPlugin = require('purifycss-webpack');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const config = {
   output: {
@@ -90,11 +90,13 @@ if (process.env.NODE_ENV === 'production') {
       minSizeReduce: 1,
       moveToParents: true,
     }),
-    new PurifyCssPlugin({ paths: glob.sync(path.join(__dirname, 'src/*.jsx')) }),
     new ImageminPlugin({
       plugins: [
         imageminMozjpeg({ quality: 50, progressive: true }),
       ],
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`, { nodir: true }),
     }),
   );
 } else {
