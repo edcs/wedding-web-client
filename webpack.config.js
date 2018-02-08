@@ -75,12 +75,7 @@ const config = {
 if (process.env.NODE_ENV === 'production') {
   config.devtool = 'cheap-module-source-map';
 
-  config.entry = [
-    'babel-polyfill',
-    'react-hot-loader/patch',
-    'webpack/hot/only-dev-server',
-    path.resolve(__dirname, 'src/index.jsx'),
-  ];
+  config.entry = path.resolve(__dirname, 'src/index.jsx');
 
   config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
