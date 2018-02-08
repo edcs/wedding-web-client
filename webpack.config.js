@@ -7,13 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PurifyCssPlugin = require('purifycss-webpack');
 
 const config = {
-  entry: [
-    'babel-polyfill',
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    path.resolve(__dirname, 'src/index.jsx'),
-  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -28,14 +21,13 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: { importLoaders: 1 },
-          },
-          { loader: 'postcss-loader' },
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
+          ],
+        }),
       },
       {
         test: /\.(png|jp(e*)g|svg)$/,
@@ -81,10 +73,15 @@ const config = {
 if (process.env.NODE_ENV === 'production') {
   config.devtool = 'cheap-module-source-map';
 
+  config.entry = [
+    'babel-polyfill',
+    'react-hot-loader/patch',
+    'webpack/hot/only-dev-server',
+    path.resolve(__dirname, 'src/index.jsx'),
+  ];
+
   config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-    }),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
     new ExtractTextPlugin({
       filename: 'bundle.css',
       disable: false,
@@ -94,20 +91,22 @@ if (process.env.NODE_ENV === 'production') {
       minSizeReduce: 1,
       moveToParents: true,
     }),
-    new PurifyCssPlugin({
-      paths: glob.sync(path.join(__dirname, 'src/*.jsx')),
-    }),
+    new PurifyCssPlugin({ paths: glob.sync(path.join(__dirname, 'src/*.jsx')) }),
   );
 } else {
   config.devtool = 'cheap-module-eval-source-map';
 
+  config.entry = [
+    'babel-polyfill',
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    path.resolve(__dirname, 'src/index.jsx'),
+  ];
+
   config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-    }),
-    new ExtractTextPlugin({
-      disable: true,
-    }),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+    new ExtractTextPlugin({ disable: true }),
   );
 }
 

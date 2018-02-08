@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --progress --hot",
+    "build": "NODE_ENV='production' webpack -p --progress --hot",
     "dev": "webpack-dev-server"
   },
   "dependencies": {
