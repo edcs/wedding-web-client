@@ -28,6 +28,7 @@ class Guest extends PureComponent {
           <InputText
             name={`name[${this.props.id}]`}
             value={this.props.name}
+            required
           />
         </InputWrapper>
         <InputWrapper>
@@ -79,6 +80,7 @@ class Guest extends PureComponent {
         <InputHidden
           name={`main[${this.props.id}]`}
           value={this.state.main}
+          required
         />
         <Heading4><br />Choose a dessert:</Heading4>
         <RadioGroup onChange={value => this.setState({ dessert: value })}>
@@ -108,6 +110,7 @@ class Guest extends PureComponent {
         <InputHidden
           name={`dessert[${this.props.id}]`}
           value={this.state.dessert}
+          required
         />
         {(this.props.index !== this.props.length - 1) ? <HorizontalRule /> : null}
       </Fragment>
