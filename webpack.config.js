@@ -4,6 +4,8 @@ const webpack = require('webpack');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const PurifyCssPlugin = require('purifycss-webpack');
 
 const config = {
@@ -92,6 +94,11 @@ if (process.env.NODE_ENV === 'production') {
       moveToParents: true,
     }),
     new PurifyCssPlugin({ paths: glob.sync(path.join(__dirname, 'src/*.jsx')) }),
+    new ImageminPlugin({
+      plugins: [
+        imageminMozjpeg({ quality: 50, progressive: true }),
+      ],
+    }),
   );
 } else {
   config.devtool = 'cheap-module-eval-source-map';

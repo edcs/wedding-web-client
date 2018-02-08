@@ -40,6 +40,8 @@
     "file-loader": "^1.1.6",
     "glob": "^7.1.2",
     "html-webpack-plugin": "^2.30.1",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-webpack-plugin": "^2.0.0",
     "postcss-loader": "^2.0.9",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
