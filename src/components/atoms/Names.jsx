@@ -7,6 +7,7 @@ const Svg = glamorous.svg(`
   sm:w-2/3
   lg:w-1/2
   xl:w-1/2
+  mt-6
 `, {
   height: 'auto',
   width: '90%',
