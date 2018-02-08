@@ -2,6 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PurifyCssPlugin = require('purifycss-webpack');
 
@@ -18,7 +19,6 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -50,7 +50,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -69,9 +69,6 @@ const config = {
       },
       template: path.resolve(__dirname, 'src/templates/index.ejs'),
     }),
-    new PurifyCssPlugin({
-      paths: glob.sync(path.join(__dirname, 'src/*.jsx')),
-    }),
   ],
   devServer: {
     historyApiFallback: true,
@@ -80,5 +77,38 @@ const config = {
     port: 8080,
   },
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.devtool = 'cheap-module-source-map';
+
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
+    new ExtractTextPlugin({
+      filename: 'bundle.css',
+      disable: false,
+      allChunks: true,
+    }),
+    new webpack.optimize.AggressiveMergingPlugin({
+      minSizeReduce: 1,
+      moveToParents: true,
+    }),
+    new PurifyCssPlugin({
+      paths: glob.sync(path.join(__dirname, 'src/*.jsx')),
+    }),
+  );
+} else {
+  config.devtool = 'cheap-module-eval-source-map';
+
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
+    new ExtractTextPlugin({
+      disable: true,
+    }),
+  );
+}
 
 module.exports = config;
