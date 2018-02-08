@@ -17,7 +17,7 @@ const Home = () => (
     </Fragment>
     <Container>
       <Row justifyContent="center">
-        <Col span={8 / 12}>
+        <Col span={{ lg: 8 / 12 }}>
           <Service />
           <Reception />
           <GiftList />
