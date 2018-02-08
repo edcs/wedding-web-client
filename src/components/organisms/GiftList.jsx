@@ -19,7 +19,7 @@ const GiftList = () => (
           Vokalia and Consonantia, there live the blind texts.
         </Heading3>
         <Row>
-          <Col>
+          <Col span={{ lg: 1 / 2 }}>
             <GiftListItem
               title="John Lewis - Number 724122"
               url="https://www.johnlewisgiftlist.com/giftint/JSPs/GiftList/BuyGifts/GuestFindAList.jsp"
@@ -27,7 +27,7 @@ const GiftList = () => (
               telephone="0345 600 2202"
             />
           </Col>
-          <Col>
+          <Col span={{ lg: 1 / 2}}>
             <GiftListItem
               title="Kuoni - Number 34804"
               url="http://www.kuoni.co.uk/gift-list"
