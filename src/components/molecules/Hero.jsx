@@ -11,6 +11,7 @@ const Wrapper = glamorous.div(`
   content-center
   flex
   justify-center
+  shadow
 `, {
   width: '100vw',
   height: '100vh',
