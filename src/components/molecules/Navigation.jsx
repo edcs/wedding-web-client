@@ -8,7 +8,7 @@ const Navigation = () => (
     <NavigationLink href="/service">Service</NavigationLink>
     <NavigationLink href="/reception">Reception</NavigationLink>
     <NavigationLink href="/gift-lists">Gift Lists</NavigationLink>
-    {/* <NavigationLink href="/rsvp">RSVP</NavigationLink> */}
+    <NavigationLink href="/rsvp">RSVP</NavigationLink>
   </NavigationBar>
 );
 

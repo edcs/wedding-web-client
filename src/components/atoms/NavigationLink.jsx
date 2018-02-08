@@ -6,8 +6,10 @@ import glamorous from 'glamorous';
 const Link = glamorous.a(`
   inline-block 
   hover:text-white 
-  mr-8 
-  ml-8 
+  mr-2
+  ml-2
+  md:mr-8 
+  md:ml-8 
   no-underline 
   font-serif 
   text-grey 
