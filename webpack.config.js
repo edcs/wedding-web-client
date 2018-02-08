@@ -2,6 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
@@ -78,6 +79,7 @@ if (process.env.NODE_ENV === 'production') {
   config.entry = path.resolve(__dirname, 'src/index.jsx');
 
   config.plugins.push(
+    new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
     new ExtractTextPlugin({
       filename: 'bundle.css',
