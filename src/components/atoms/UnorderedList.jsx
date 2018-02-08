@@ -5,6 +5,8 @@ import React from 'react';
 
 const Ul = glamorous.ul(`
   text-center
+  m-0
+  p-0
 `, {
   listStyle: 'none',
 });

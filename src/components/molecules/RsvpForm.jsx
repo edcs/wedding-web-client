@@ -17,7 +17,7 @@ class RsvpForm extends PureComponent {
   }
 
   onSubmitHandler(data) {
-    console.log(data);
+    //
   }
 
   onValidHandler() {

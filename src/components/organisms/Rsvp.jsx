@@ -3,6 +3,7 @@ import React, { Fragment, PureComponent } from 'react';
 import { Row, Col } from 'glamorous-grid';
 import { camelCase } from 'change-case-object';
 
+import CanYouMakeIt from '../molecules/CanYouMakeIt';
 import Heading2 from '../atoms/Heading2';
 import InviteLookup from '../molecules/InviteLookup';
 import NameList from '../molecules/NameList';
@@ -15,7 +16,7 @@ class Rsvp extends PureComponent {
       httpRequestInProgress: false,
       invite: {},
       lookupNames: [],
-      visibleSegment: 'NameList',
+      visibleSegment: 'InviteLookup',
     };
   }
 
@@ -35,6 +36,12 @@ class Rsvp extends PureComponent {
             names={this.state.lookupNames}
             onSelect={id => this.lookupInvitation(id)}
             onSearchAgain={() => this.searchAgain()}
+          />
+        );
+      case 'CanYouMakeIt':
+        return (
+          <CanYouMakeIt
+            onAccept={() => this.setState({ visibleSegment: 'RsvpForm' })}
           />
         );
       case 'RsvpForm':
@@ -59,7 +66,7 @@ class Rsvp extends PureComponent {
       get(`${process.env.API}invites/${id}`)
         .then(({ data }) => this.setState({
           invite: camelCase(data),
-          visibleSegment: 'RsvpForm',
+          visibleSegment: 'CanYouMakeIt',
         }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
   }

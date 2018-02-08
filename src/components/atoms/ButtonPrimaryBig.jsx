@@ -18,22 +18,30 @@ const Button = glamorous.button(`
   disabled ? 'border-grey bg-grey opacity-50 cursor-not-allowed' :
              'border-teal bg-teal hover:bg-teal-dark hover:border-teal-dark'));
 
-const ButtonPrimaryBig = ({ children, disabled, type }) => (
-  <Button disabled={disabled} type={type}>
+const ButtonPrimaryBig = ({
+  children, disabled, onClick, type,
+}) => (
+  <Button
+    disabled={disabled}
+    onClick={event => onClick(event)}
+    type={type}
+  >
     {children}
   </Button>
 );
 
 ButtonPrimaryBig.propTypes = {
-  type: PropTypes.oneOf(['button', 'submit']),
   children: PropTypes.string,
   disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  type: PropTypes.oneOf(['button', 'submit']),
 };
 
 ButtonPrimaryBig.defaultProps = {
-  disabled: false,
   type: 'submit',
   children: 'Submit',
+  onClick: () => {},
+  disabled: false,
 };
 
 export default ButtonPrimaryBig;

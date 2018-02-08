@@ -4,43 +4,44 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Button = glamorous.button(`
-  flex-no-shrink
-  text-sm
+  block
+  w-full
   border-4
   text-white
-  text-xl
+  text-2xl
+  mt-8
   py-1
   px-4
   rounded
   font-serif
 `, ({ disabled }) => (
   disabled ? 'border-grey bg-grey opacity-50 cursor-not-allowed' :
-             'border-teal bg-teal hover:bg-teal-dark hover:border-teal-dark'));
+             'border-red-light bg-red-light hover:bg-red hover:border-red'));
 
-const ButtonPrimary = ({
+const ButtonDangerBig = ({
   children, disabled, onClick, type,
 }) => (
   <Button
-    onClick={event => onClick(event)}
     disabled={disabled}
+    onClick={event => onClick(event)}
     type={type}
   >
     {children}
   </Button>
 );
 
-ButtonPrimary.propTypes = {
-  type: PropTypes.oneOf(['button', 'submit']),
+ButtonDangerBig.propTypes = {
   children: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  type: PropTypes.oneOf(['button', 'submit']),
 };
 
-ButtonPrimary.defaultProps = {
-  disabled: false,
+ButtonDangerBig.defaultProps = {
   type: 'submit',
   children: 'Submit',
   onClick: () => {},
+  disabled: false,
 };
 
-export default ButtonPrimary;
+export default ButtonDangerBig;
