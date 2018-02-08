@@ -18,6 +18,7 @@ const Span = glamorous.span(`
   color: theme.colors.black,
   borderBottomColor: theme.colors.grey,
   borderBottomWidth: 1,
+  borderBottomStyle: 'dotted',
 }));
 
 const ListItem = ({ children, onClick }) => (

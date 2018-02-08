@@ -13,6 +13,7 @@ const Subtitle = glamorous.a(`
   color: theme.colors.black,
   borderBottomColor: theme.colors.grey,
   borderBottomWidth: 1,
+  borderBottomStyle: 'dotted',
 }));
 
 const GiftListItemSubtitle = ({ children }) => (<Subtitle>{children}</Subtitle>);

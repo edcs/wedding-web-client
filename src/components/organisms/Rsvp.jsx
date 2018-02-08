@@ -3,6 +3,7 @@ import React, { Fragment, PureComponent } from 'react';
 import { Row, Col } from 'glamorous-grid';
 import { camelCase } from 'change-case-object';
 
+import ActionLink from '../atoms/ActionLink';
 import CanYouMakeIt from '../molecules/CanYouMakeIt';
 import DeclineForm from '../molecules/DeclineForm';
 import Heading2 from '../atoms/Heading2';
@@ -10,15 +11,18 @@ import InviteLookup from '../molecules/InviteLookup';
 import NameList from '../molecules/NameList';
 import RsvpForm from '../molecules/RsvpForm';
 
+const defaultState = {
+  httpRequestInProgress: false,
+  invite: {},
+  lookupNames: [],
+  showResetButton: false,
+  visibleSegment: 'InviteLookup',
+};
+
 class Rsvp extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      httpRequestInProgress: false,
-      invite: {},
-      lookupNames: [],
-      visibleSegment: 'InviteLookup',
-    };
+    this.state = defaultState;
   }
 
   getVisibleSegment() {
@@ -36,7 +40,7 @@ class Rsvp extends PureComponent {
           <NameList
             names={this.state.lookupNames}
             onSelect={id => this.lookupInvitation(id)}
-            onSearchAgain={() => this.searchAgain()}
+            onSearchAgain={() => this.resetInterface()}
           />
         );
       case 'CanYouMakeIt':
@@ -63,6 +67,7 @@ class Rsvp extends PureComponent {
         .then(({ data }) => this.setState({
           lookupNames: camelCase(data),
           visibleSegment: 'NameList',
+          showResetButton: data.length > 0,
         }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
   }
@@ -73,12 +78,13 @@ class Rsvp extends PureComponent {
         .then(({ data }) => this.setState({
           invite: camelCase(data),
           visibleSegment: 'CanYouMakeIt',
+          showResetButton: true,
         }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
   }
 
-  searchAgain() {
-    this.setState({ visibleSegment: 'InviteLookup' });
+  resetInterface() {
+    this.setState(defaultState);
   }
 
   render() {
@@ -92,6 +98,15 @@ class Rsvp extends PureComponent {
         <Row>
           <Col>{this.getVisibleSegment()}</Col>
         </Row>
+        { this.state.showResetButton ? (
+          <Row>
+            <Col>
+              <ActionLink onClick={() => this.resetInterface()}>
+                I've made a mistake, start again&hellip;
+              </ActionLink>
+            </Col>
+          </Row>
+        ) : null }
       </Fragment>
     );
   }
