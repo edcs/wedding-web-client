@@ -31,6 +31,7 @@ class DeclineForm extends PureComponent {
       <Fragment>
         <Heading3>
           We're sorry you can't make it <span role="img" aria-label="sad face">😢</span>
+          <br /><br />
         </Heading3>
         <Formsy
           onInvalid={() => this.onInvalidHandler()}
@@ -42,6 +43,7 @@ class DeclineForm extends PureComponent {
             <InputTextArea
               name="message"
               placeholder="Leave us a note letting us know you can't make it"
+              required
             />
           </InputWrapper>
           <ButtonPrimaryBig
