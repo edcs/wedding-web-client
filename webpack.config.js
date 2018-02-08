@@ -11,7 +11,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const config = {
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -38,7 +38,7 @@ const config = {
           loader: 'url-loader',
           options: {
             limit: 8000,
-            name: 'images/[name].[ext]',
+            name: 'images/[name].[hash].[ext]',
           },
         },
       },
@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === 'production') {
     new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
     new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
     new ExtractTextPlugin({
-      filename: 'bundle.css',
+      filename: '[name].[contenthash].css',
       disable: false,
       allChunks: true,
     }),

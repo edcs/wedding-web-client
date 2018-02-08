@@ -3,7 +3,7 @@ import React from 'react';
 import glamorous from 'glamorous';
 
 import Names from '../atoms/Names';
-import splash from '../../assets/images/splash.png';
+import splash from '../../assets/images/splash.jpg';
 
 const Wrapper = glamorous.div(`
   bg-center
