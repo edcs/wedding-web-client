@@ -16,10 +16,13 @@ const Subtitle = glamorous.a(`
   borderBottomStyle: 'dotted',
 }));
 
-const GiftListItemSubtitle = ({ children }) => (<Subtitle>{children}</Subtitle>);
+const GiftListItemSubtitle = ({ href, children }) => (
+  <Subtitle href={href} target="_blank">{children}</Subtitle>
+);
 
 GiftListItemSubtitle.propTypes = {
   children: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
 export default GiftListItemSubtitle;

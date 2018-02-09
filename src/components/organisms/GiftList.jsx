@@ -27,14 +27,16 @@ const GiftList = () => (
         <Row>
           <Col span={{ lg: 1 / 2 }}>
             <GiftListItem
+              note="(Opens 14th April 2018)"
               title="John Lewis - Number 724122"
               url="https://www.johnlewisgiftlist.com/giftint/JSPs/GiftList/BuyGifts/GuestFindAList.jsp"
               website="www.johnlewisgiftlist.com"
               telephone="0345 600 2202"
             />
           </Col>
-          <Col span={{ lg: 1 / 2}}>
+          <Col span={{ lg: 1 / 2 }}>
             <GiftListItem
+              note="(Open now)"
               title="Kuoni - Number 34804"
               url="http://www.kuoni.co.uk/gift-list"
               website="www.kuoni.co.uk/gift-list"
