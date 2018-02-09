@@ -14,10 +14,10 @@ class NameList extends PureComponent {
     this.state = { names: this.mapNames(props.names) };
   }
 
-  mapNames(names) {
-    return names.reduce((accumulator, value) => ({
+  mapNames(invitees) {
+    return invitees.reduce((accumulator, invitee) => ({
       ...accumulator,
-      [value.inviteId]: [...(accumulator[value.inviteId] || []), value.name],
+      [invitee.invite.id]: invitee.invite.invitees.map(i => i.name),
     }), {});
   }
 
