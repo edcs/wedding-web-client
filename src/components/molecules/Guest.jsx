@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Fragment, PureComponent } from 'react';
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
-import { withTheme } from 'glamorous';
+import { RadioGroup } from 'react-radio-buttons';
 
 import Heading4 from '../atoms/Heading4';
 import HorizontalRule from '../atoms/HorizontalRule';
@@ -9,6 +8,7 @@ import InputHidden from '../atoms/InputHidden';
 import InputLabel from '../atoms/InputLabel';
 import InputText from '../atoms/InputText';
 import InputWrapper from '../atoms/InputWrapper';
+import RadioButton from '../atoms/RadioButton';
 import Serif from '../atoms/Serif';
 
 class Guest extends PureComponent {
@@ -40,37 +40,19 @@ class Guest extends PureComponent {
         </InputWrapper>
         <Heading4><br />Choose a main course:</Heading4>
         <RadioGroup onChange={value => this.setState({ main: value })}>
-          <RadioButton
-            iconSize={18}
-            iconInnerSize={8}
-            pointColor={this.props.theme.colors.teal}
-            rootColor={this.props.theme.colors['grey-dark']}
-            value="beef"
-          >
+          <RadioButton value="beef">
             <Serif>
               Roast beef, Yorkshire pudding, roast potatoes and a selection of
               vegetables.<br />Served with a red wine jus or gravy
             </Serif>
           </RadioButton>
-          <RadioButton
-            iconSize={18}
-            iconInnerSize={8}
-            rootColor={this.props.theme.colors['grey-dark']}
-            pointColor={this.props.theme.colors.teal}
-            value="chicken"
-          >
+          <RadioButton value="chicken">
             <Serif>
               Chicken breast stuffed with brie, topped with a mushroom and bacon sauce.
               <br />Served with roast potatoes and a selection of vegetables
             </Serif>
           </RadioButton>
-          <RadioButton
-            iconSize={18}
-            iconInnerSize={8}
-            rootColor={this.props.theme.colors['grey-dark']}
-            pointColor={this.props.theme.colors.teal}
-            value="vegetarian"
-          >
+          <RadioButton value="vegetarian">
             <Serif>
               Goats cheese, caramelised red onion and thyme tartlet.
               <br />Served with roast potatoes and a selection of vegetables
@@ -84,24 +66,12 @@ class Guest extends PureComponent {
         />
         <Heading4><br />Choose a dessert:</Heading4>
         <RadioGroup onChange={value => this.setState({ dessert: value })}>
-          <RadioButton
-            iconSize={18}
-            iconInnerSize={8}
-            rootColor={this.props.theme.colors['grey-dark']}
-            pointColor={this.props.theme.colors.teal}
-            value="cheesecake"
-          >
+          <RadioButton value="cheesecake">
             <Serif>
               White chocolate and raspberry cheesecake
             </Serif>
           </RadioButton>
-          <RadioButton
-            iconSize={18}
-            iconInnerSize={8}
-            rootColor={this.props.theme.colors['grey-dark']}
-            pointColor={this.props.theme.colors.teal}
-            value="brownie"
-          >
+          <RadioButton value="brownie">
             <Serif>
               Triple chocolate brownie squares
             </Serif>
@@ -110,6 +80,41 @@ class Guest extends PureComponent {
         <InputHidden
           name={`${this.props.id}.dessert`}
           value={this.state.dessert}
+          required
+        />
+        <Heading4><br />Pick a drink from the following:</Heading4>
+        <RadioGroup onChange={value => this.setState({ favouriteDrink: value })}>
+          <RadioButton value="red-wine">
+            <Serif>Red Wine</Serif>
+          </RadioButton>
+          <RadioButton value="white-wine">
+            <Serif>White Wine</Serif>
+          </RadioButton>
+          <RadioButton value="rosé">
+            <Serif>Rosé</Serif>
+          </RadioButton>
+          <RadioButton value="prosecco">
+            <Serif>Prosecco</Serif>
+          </RadioButton>
+          <RadioButton value="craft-beer">
+            <Serif>Craft Beer</Serif>
+          </RadioButton>
+          <RadioButton value="real-ale">
+            <Serif>Real Ale</Serif>
+          </RadioButton>
+          <RadioButton value="gin-and-tonic">
+            <Serif>Gin &amp; Tonic</Serif>
+          </RadioButton>
+          <RadioButton value="soft-drinks">
+            <Serif>Soft Drinks</Serif>
+          </RadioButton>
+          <RadioButton value="byob">
+            <Serif>I'll bring my own</Serif>
+          </RadioButton>
+        </RadioGroup>
+        <InputHidden
+          name={`${this.props.id}.favouriteDrink`}
+          value={this.state.favouriteDrink}
           required
         />
         {(this.props.index !== this.props.length - 1) ? <HorizontalRule /> : null}
@@ -123,7 +128,6 @@ Guest.propTypes = {
   index: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired,
 };
 
-export default withTheme(Guest);
+export default Guest;
