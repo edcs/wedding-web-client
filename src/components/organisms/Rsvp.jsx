@@ -1,4 +1,4 @@
-import { get } from 'axios';
+import { get, post } from 'axios';
 import React, { Fragment, PureComponent } from 'react';
 import { Row, Col } from 'glamorous-grid';
 import { camelCase } from 'change-case-object';
@@ -9,6 +9,7 @@ import DeclineForm from '../molecules/DeclineForm';
 import Heading2 from '../atoms/Heading2';
 import InviteLookup from '../molecules/InviteLookup';
 import NameList from '../molecules/NameList';
+import RsvpComplete from '../molecules/RsvpComplete';
 import RsvpForm from '../molecules/RsvpForm';
 
 const defaultState = {
@@ -52,12 +53,17 @@ class Rsvp extends PureComponent {
         );
       case 'DeclineForm':
         return (
-          <DeclineForm />
+          <DeclineForm
+            httpRequestInProgress={this.state.httpRequestInProgress}
+            onSubmit={({ notes }) => this.postRsvpDecline(notes)}
+          />
         );
       case 'RsvpForm':
         return (
           <RsvpForm names={this.state.invite.invitees} />
         );
+      case 'RsvpComplete':
+        return (<RsvpComplete />);
     }
   }
 
@@ -80,6 +86,13 @@ class Rsvp extends PureComponent {
           visibleSegment: 'CanYouMakeIt',
           showResetButton: true,
         }))
+        .finally(() => this.setState({ httpRequestInProgress: false })));
+  }
+
+  postRsvpDecline(notes) {
+    this.setState({ httpRequestInProgress: true }, () =>
+      post(`${process.env.API}invites/${this.state.invite.id}/decline`, { notes })
+        .then(() => this.setState({ showResetButton: false, visibleSegment: 'RsvpComplete' }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
   }
 

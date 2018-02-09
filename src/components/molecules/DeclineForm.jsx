@@ -41,13 +41,13 @@ class DeclineForm extends PureComponent {
           <InputWrapper>
             <InputLabel>Your Message</InputLabel>
             <InputTextArea
-              name="message"
+              name="notes"
               placeholder="Leave us a note letting us know you can't make it"
               required
             />
           </InputWrapper>
           <ButtonPrimaryBig
-            disabled={this.state.submitButtonDisabled}
+            disabled={this.state.submitButtonDisabled || this.props.httpRequestInProgress}
           >
             Send RSVP
           </ButtonPrimaryBig>
@@ -58,10 +58,12 @@ class DeclineForm extends PureComponent {
 }
 
 DeclineForm.propTypes = {
+  httpRequestInProgress: PropTypes.bool,
   onSubmit: PropTypes.func,
 };
 
 DeclineForm.defaultProps = {
+  httpRequestInProgress: false,
   onSubmit: () => {},
 };
 
