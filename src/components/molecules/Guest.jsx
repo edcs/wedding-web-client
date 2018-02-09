@@ -26,7 +26,7 @@ class Guest extends PureComponent {
         <InputWrapper>
           <InputLabel>Name</InputLabel>
           <InputText
-            name={`${this.props.id}.name`}
+            name={`invitees.${this.props.id}.name`}
             value={this.props.name}
             required
           />
@@ -34,7 +34,7 @@ class Guest extends PureComponent {
         <InputWrapper>
           <InputLabel>Does this person have any special dietary requirements?</InputLabel>
           <InputText
-            name={`${this.props.id}.dietaryRequirements`}
+            name={`invitees.${this.props.id}.dietaryRequirements`}
             placeholder="e.g. 'a nut allergy'"
           />
         </InputWrapper>
@@ -60,7 +60,7 @@ class Guest extends PureComponent {
           </RadioButton>
         </RadioGroup>
         <InputHidden
-          name={`${this.props.id}.main`}
+          name={`invitees.${this.props.id}.main`}
           value={this.state.main}
           required
         />
@@ -78,7 +78,7 @@ class Guest extends PureComponent {
           </RadioButton>
         </RadioGroup>
         <InputHidden
-          name={`${this.props.id}.dessert`}
+          name={`invitees.${this.props.id}.dessert`}
           value={this.state.dessert}
           required
         />
@@ -113,11 +113,11 @@ class Guest extends PureComponent {
           </RadioButton>
         </RadioGroup>
         <InputHidden
-          name={`${this.props.id}.favouriteDrink`}
+          name={`invitees.${this.props.id}.favouriteDrink`}
           value={this.state.favouriteDrink}
           required
         />
-        {(this.props.index !== this.props.length - 1) ? <HorizontalRule /> : null}
+        <HorizontalRule />
       </Fragment>
     );
   }
@@ -125,8 +125,6 @@ class Guest extends PureComponent {
 
 Guest.propTypes = {
   id: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
-  length: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
 };
 
