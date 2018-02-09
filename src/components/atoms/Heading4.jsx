@@ -10,6 +10,7 @@ const H4 = glamorous.h4(`
   md:text-2xl
   text-center
   tracking-wide
+  leading-normal
 `);
 
 const Heading4 = ({ children }) => (

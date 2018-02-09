@@ -3,7 +3,7 @@ import { Row, Col } from 'glamorous-grid';
 
 import GiftListItem from '../molecules/GiftListItem';
 import Heading2 from '../atoms/Heading2';
-import Heading3 from '../atoms/Heading3';
+import Heading4 from '../atoms/Heading4';
 
 const GiftList = () => (
   <Fragment>
@@ -14,9 +14,16 @@ const GiftList = () => (
     </Row>
     <Row>
       <Col>
-        <Heading3>
-          Our gift lists are registered at Kuoni and John Lewis:
-        </Heading3>
+        <Heading4>
+          So what do you get for the bride and groom,<br />
+          when they’ve got things for nearly EVERY room?<br />
+          When choosing a gift there’s no need to panic,<br />
+          they’ve got two lists so it won’t get manic.<br />
+          One will include special treats for their home,<br />
+          pots and pans or even a new phone.<br />
+          The other is a flight to somewhere hot,<br />
+          a trip to Sri Lanka, the perfect honeymoon spot.
+        </Heading4>
         <Row>
           <Col span={{ lg: 1 / 2 }}>
             <GiftListItem

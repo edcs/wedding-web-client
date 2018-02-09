@@ -11,6 +11,7 @@ const H3 = glamorous.h3(`
   md:text-2xl
   text-center
   tracking-wide
+  leading-normal
 `);
 
 const Heading3 = ({ children }) => (
