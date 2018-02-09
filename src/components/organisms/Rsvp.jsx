@@ -60,7 +60,10 @@ class Rsvp extends PureComponent {
         );
       case 'RsvpForm':
         return (
-          <RsvpForm names={this.state.invite.invitees} />
+          <RsvpForm
+            names={this.state.invite.invitees}
+            onSubmit={data => this.postRsvpAccept(data)}
+          />
         );
       case 'RsvpComplete':
         return (<RsvpComplete />);
@@ -86,6 +89,13 @@ class Rsvp extends PureComponent {
           visibleSegment: 'CanYouMakeIt',
           showResetButton: true,
         }))
+        .finally(() => this.setState({ httpRequestInProgress: false })));
+  }
+
+  postRsvpAccept(data) {
+    this.setState({ httpRequestInProgress: true }, () =>
+      post(`${process.env.API}invites/${this.state.invite.id}/accept`, data)
+        .then(() => this.setState({ showResetButton: false, visibleSegment: 'RsvpComplete' }))
         .finally(() => this.setState({ httpRequestInProgress: false })));
   }
 

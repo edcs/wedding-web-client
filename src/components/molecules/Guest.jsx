@@ -26,7 +26,7 @@ class Guest extends PureComponent {
         <InputWrapper>
           <InputLabel>Name</InputLabel>
           <InputText
-            name={`name[${this.props.id}]`}
+            name={`${this.props.id}.name`}
             value={this.props.name}
             required
           />
@@ -34,7 +34,7 @@ class Guest extends PureComponent {
         <InputWrapper>
           <InputLabel>Does this person have any special dietary requirements?</InputLabel>
           <InputText
-            name={`dietaryRequirements[${this.props.id}]`}
+            name={`${this.props.id}.dietaryRequirements`}
             placeholder="e.g. 'a nut allergy'"
           />
         </InputWrapper>
@@ -78,7 +78,7 @@ class Guest extends PureComponent {
           </RadioButton>
         </RadioGroup>
         <InputHidden
-          name={`main[${this.props.id}]`}
+          name={`${this.props.id}.main`}
           value={this.state.main}
           required
         />
@@ -89,7 +89,7 @@ class Guest extends PureComponent {
             iconInnerSize={8}
             rootColor={this.props.theme.colors['grey-dark']}
             pointColor={this.props.theme.colors.teal}
-            value="beef"
+            value="cheesecake"
           >
             <Serif>
               White chocolate and raspberry cheesecake
@@ -100,7 +100,7 @@ class Guest extends PureComponent {
             iconInnerSize={8}
             rootColor={this.props.theme.colors['grey-dark']}
             pointColor={this.props.theme.colors.teal}
-            value="chicken"
+            value="brownie"
           >
             <Serif>
               Triple chocolate brownie squares
@@ -108,7 +108,7 @@ class Guest extends PureComponent {
           </RadioButton>
         </RadioGroup>
         <InputHidden
-          name={`dessert[${this.props.id}]`}
+          name={`${this.props.id}.dessert`}
           value={this.state.dessert}
           required
         />
