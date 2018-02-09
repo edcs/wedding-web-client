@@ -3,10 +3,11 @@ import React, { Fragment, PureComponent } from 'react';
 import { Row, Col } from 'glamorous-grid';
 import { camelCase } from 'change-case-object';
 
-import ActionLink from '../atoms/ActionLink';
+// import ActionLink from '../atoms/ActionLink';
 import CanYouMakeIt from '../molecules/CanYouMakeIt';
 import DeclineForm from '../molecules/DeclineForm';
 import Heading2 from '../atoms/Heading2';
+import Heading3 from '../atoms/Heading3';
 import InviteLookup from '../molecules/InviteLookup';
 import NameList from '../molecules/NameList';
 import RsvpForm from '../molecules/RsvpForm';
@@ -93,9 +94,12 @@ class Rsvp extends PureComponent {
         <Row>
           <Col>
             <Heading2 id="rsvp">RSVP</Heading2>
+            <Heading3>
+              You will be able to RSVP from 9:00am on Monday 12th February 2018
+            </Heading3>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col>{this.getVisibleSegment()}</Col>
         </Row>
         { this.state.showResetButton ? (
@@ -106,7 +110,7 @@ class Rsvp extends PureComponent {
               </ActionLink>
             </Col>
           </Row>
-        ) : null }
+        ) : null */}
       </Fragment>
     );
   }
