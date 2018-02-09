@@ -4,14 +4,12 @@ import glamorous from 'glamorous';
 
 const Svg = glamorous.svg(`
   z-5
+  w-3/4
   sm:w-2/3
   lg:w-1/2
   xl:w-1/2
   mt-6
-`, {
-  height: 'auto',
-  width: '90%',
-});
+`);
 
 const Names = () => (
   <Svg viewBox="0 0 350 186" xmlns="http://www.w3.org/2000/svg">

@@ -96,7 +96,18 @@ if (process.env.NODE_ENV === 'production') {
       ],
     }),
     new PurgecssPlugin({
-      paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`, { nodir: true }),
+      paths: [
+        ...glob.sync(`${path.join(__dirname, 'src')}/**/*.jsx`, { nodir: true }),
+        ...glob.sync(`${path.join(__dirname, 'src')}/**/*.ejs`, { nodir: true }),
+      ],
+      extractors: [{
+        extractor: class {
+          static extract(content) {
+            return content.match(/[A-z0-9-:/]+/g) || [];
+          }
+        },
+        extensions: ['ejs', 'jsx'],
+      }],
     }),
   );
 } else {

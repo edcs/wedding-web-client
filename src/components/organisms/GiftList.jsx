@@ -15,7 +15,7 @@ const GiftList = () => (
     <Row>
       <Col>
         <Heading3>
-          Our gist lists are registered at Kuoni and John Lewis:
+          Our gift lists are registered at Kuoni and John Lewis:
         </Heading3>
         <Row>
           <Col span={{ lg: 1 / 2 }}>
