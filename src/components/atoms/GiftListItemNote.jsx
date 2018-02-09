@@ -7,7 +7,7 @@ const Subtitle = glamorous.div(`
   font-serif
   font-light
   italic
-  mt-3
+  mt-4
 `);
 
 const GiftListItemNote = ({ children }) => (
