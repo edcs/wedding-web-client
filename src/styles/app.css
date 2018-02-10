@@ -6,3 +6,7 @@ input:focus,
 textarea:focus {
   outline: none;
 }
+
+.overflow-y-scroll {
+  -webkit-overflow-scrolling: touch;
+}

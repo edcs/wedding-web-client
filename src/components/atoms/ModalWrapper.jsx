@@ -4,9 +4,9 @@ import React from 'react';
 
 const Wrapper = glamorous.div(`
   flex-1
-  content-center
-  justify-center
-  self-center
+  sm:content-center
+  sm:justify-center
+  sm:self-center
   p-4
 `);
 

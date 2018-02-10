@@ -1,8 +1,9 @@
 import glamorous from 'glamorous';
 import PropTypes from 'prop-types';
 import React from 'react';
+import OverflowScrolling from 'react-overflow-scrolling';
 
-const Overlay = glamorous.div(`
+const Overlay = glamorous(OverflowScrolling)(`
   flex
   fixed
   pin
