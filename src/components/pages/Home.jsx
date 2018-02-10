@@ -9,8 +9,6 @@ import Reception from '../organisms/Reception';
 import Rsvp from '../organisms/Rsvp';
 import Service from '../organisms/Service';
 
-import HotelsModal from '../organisms/HotelsModal';
-
 const Home = () => (
   <Fragment>
     <Fragment>
@@ -28,7 +26,6 @@ const Home = () => (
       </Row>
     </Container>
     <Footer />
-    <HotelsModal />
   </Fragment>
 );
 

@@ -4,6 +4,7 @@ import { Row, Col } from 'glamorous-grid';
 import Heading2 from '../atoms/Heading2';
 import Heading3 from '../atoms/Heading3';
 import Heading4 from '../atoms/Heading4';
+import Link from '../atoms/Link';
 
 const Service = () => (
   <Fragment>
@@ -31,6 +32,14 @@ const Service = () => (
           Buckinghamshire<br />
           HP8 4QF
         </Heading4>
+      </Col>
+    </Row>
+    <Row>
+      <Col style={{ textAlign: 'right' }}>
+        <Link href="#full-schedule">Full Schedule</Link>
+      </Col>
+      <Col>
+        <Link href="#local-parking">Local Parking</Link>
       </Col>
     </Row>
   </Fragment>

@@ -16,7 +16,7 @@ const Span = glamorous.span(`
 `, ({ theme }) => ({
   textDecoration: 'none',
   color: theme.colors.black,
-  borderBottomColor: theme.colors.grey,
+  borderBottomColor: theme.colors.teal,
   borderBottomWidth: 1,
   borderBottomStyle: 'dotted',
 }));
