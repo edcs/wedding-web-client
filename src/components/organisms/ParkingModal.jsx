@@ -6,25 +6,22 @@ import ModalHeading from '../atoms/ModalHeading';
 import ModalListItem from '../atoms/ModalListItem';
 import UnorderedList from '../atoms/UnorderedList';
 
-const TransportModal = ({ dismissModal }) => (
+const ParkingModal = ({ dismissModal }) => (
   <Modal dismissModal={event => dismissModal(event)}>
-    <ModalHeading>Local Taxis</ModalHeading>
+    <ModalHeading>Local Parking</ModalHeading>
     <UnorderedList>
       <ModalListItem>
-        <b>Chalfont Taxis</b> - 01494 875522 or 01753 893131
-      </ModalListItem>
-      <ModalListItem>
-        <b>Acorn Cars</b> - 01494 771181, 01753 585222 or 01753 882261
-      </ModalListItem>
-      <ModalListItem>
-        <b>Aspire Executive Cars</b> - 01753 885886 or 01494 611200
+        <b>Chalfont St Giles, Blizzards Yard</b> -
+        Blizzards Yard car park is located off the High Street in Chalfont St Giles, HP8 4QA
+        <br />
+        Up to 2 hours £1.40, Up to 3 hours £2.00
       </ModalListItem>
     </UnorderedList>
   </Modal>
 );
 
-TransportModal.propTypes = {
+ParkingModal.propTypes = {
   dismissModal: PropTypes.func.isRequired,
 };
 
-export default TransportModal;
+export default ParkingModal;

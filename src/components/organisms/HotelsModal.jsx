@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Modal from '../molecules/Modal';
@@ -5,8 +6,8 @@ import ModalHeading from '../atoms/ModalHeading';
 import ModalListItem from '../atoms/ModalListItem';
 import UnorderedList from '../atoms/UnorderedList';
 
-const HotelsModal = () => (
-  <Modal>
+const HotelsModal = ({ dismissModal }) => (
+  <Modal dismissModal={event => dismissModal(event)}>
     <ModalHeading>Local Hotels</ModalHeading>
     <UnorderedList>
       <ModalListItem>
@@ -45,5 +46,9 @@ const HotelsModal = () => (
     </UnorderedList>
   </Modal>
 );
+
+HotelsModal.propTypes = {
+  dismissModal: PropTypes.func.isRequired,
+};
 
 export default HotelsModal;

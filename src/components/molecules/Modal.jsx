@@ -6,11 +6,11 @@ import ModalCloseButton from '../atoms/ModalCloseButton';
 import ModalOverlay from '../atoms/ModalOverlay';
 import ModalWrapper from '../atoms/ModalWrapper';
 
-const Modal = ({ children }) => (
+const Modal = ({ children, dismissModal }) => (
   <Fragment>
     <ScrollLock />
     <ModalOverlay>
-      <ModalCloseButton />
+      <ModalCloseButton onClick={event => dismissModal(event)} />
       <ModalWrapper>
         {children}
       </ModalWrapper>
@@ -20,6 +20,7 @@ const Modal = ({ children }) => (
 
 Modal.propTypes = {
   children: PropTypes.node,
+  dismissModal: PropTypes.func.isRequired,
 };
 
 Modal.defaultProps = {

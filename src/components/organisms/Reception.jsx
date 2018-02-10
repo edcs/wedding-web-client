@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { Row, Col } from 'glamorous-grid';
 
@@ -6,7 +7,7 @@ import Heading3 from '../atoms/Heading3';
 import Heading4 from '../atoms/Heading4';
 import Link from '../atoms/Link';
 
-const Reception = () => (
+const Reception = ({ launchModal }) => (
   <Fragment>
     <Row>
       <Col>
@@ -32,13 +33,27 @@ const Reception = () => (
     </Row>
     <Row>
       <Col style={{ textAlign: 'right' }}>
-        <Link href="#local-hotels">Local Hotels</Link>
+        <Link
+          href="#local-hotels"
+          onClick={event => launchModal(event)}
+        >
+          Local Hotels
+        </Link>
       </Col>
       <Col>
-        <Link href="local-taxis">Local Taxis</Link>
+        <Link
+          href="#local-taxis"
+          onClick={event => launchModal(event)}
+        >
+          Local Taxis
+        </Link>
       </Col>
     </Row>
   </Fragment>
 );
+
+Reception.propTypes = {
+  launchModal: PropTypes.func.isRequired,
+};
 
 export default Reception;

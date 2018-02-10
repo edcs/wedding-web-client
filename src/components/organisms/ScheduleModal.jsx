@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Modal from '../molecules/Modal';
@@ -5,8 +6,8 @@ import ModalHeading from '../atoms/ModalHeading';
 import ModalListItem from '../atoms/ModalListItem';
 import UnorderedList from '../atoms/UnorderedList';
 
-const ScheduleModal = () => (
-  <Modal>
+const ScheduleModal = ({ dismissModal }) => (
+  <Modal dismissModal={event => dismissModal(event)}>
     <ModalHeading>The Schedule</ModalHeading>
     <UnorderedList>
       <ModalListItem>
@@ -54,5 +55,9 @@ const ScheduleModal = () => (
     </UnorderedList>
   </Modal>
 );
+
+ScheduleModal.propTypes = {
+  dismissModal: PropTypes.func.isRequired,
+};
 
 export default ScheduleModal;

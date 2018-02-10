@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { Row, Col } from 'glamorous-grid';
 
@@ -6,7 +7,7 @@ import Heading3 from '../atoms/Heading3';
 import Heading4 from '../atoms/Heading4';
 import Link from '../atoms/Link';
 
-const Service = () => (
+const Service = ({ launchModal }) => (
   <Fragment>
     <Row>
       <Col>
@@ -36,13 +37,27 @@ const Service = () => (
     </Row>
     <Row>
       <Col style={{ textAlign: 'right' }}>
-        <Link href="#full-schedule">Full Schedule</Link>
+        <Link
+          href="#full-schedule"
+          onClick={event => launchModal(event)}
+        >
+          Full Schedule
+        </Link>
       </Col>
       <Col>
-        <Link href="#local-parking">Local Parking</Link>
+        <Link
+          href="#local-parking"
+          onClick={event => launchModal(event)}
+        >
+          Local Parking
+        </Link>
       </Col>
     </Row>
   </Fragment>
 );
+
+Service.propTypes = {
+  launchModal: PropTypes.func.isRequired,
+};
 
 export default Service;
