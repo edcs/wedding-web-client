@@ -17,22 +17,22 @@ const ScheduleModal = ({ dismissModal }) => (
         <b>3:15pm</b> - Church ceremony begins
       </ModalListItem>
       <ModalListItem>
-        <b>4:30pm</b> - Church ceremony finishes, photos at church
+        <b>4:30pm</b> - Church ceremony finishes, photos at the church
       </ModalListItem>
       <ModalListItem>
-        <b>5:00pm</b> - Guests make way to Windmill Farm for reception
+        <b>5:00pm</b> - Guests make their way to Windmill Farm for the reception
       </ModalListItem>
       <ModalListItem>
-        <b>5:15pm</b> - Welcome drinks at wedding reception
+        <b>5:15pm</b> - Welcome drinks
       </ModalListItem>
       <ModalListItem>
         <b>6:10pm</b> - Guests take their seats for wedding breakfast
       </ModalListItem>
       <ModalListItem>
-        <b>7:15pm</b> - Speeches
+        <b>7:15pm</b> - Speeches commence
       </ModalListItem>
       <ModalListItem>
-        <b>8:00pm</b> - Welcome drinks for evening guests
+        <b>8:15pm</b> -Evening guests arrive
       </ModalListItem>
       <ModalListItem>
         <b>8:25pm</b> - Time for cake!
