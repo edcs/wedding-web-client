@@ -1,6 +1,7 @@
 import { AppContainer } from 'react-hot-loader';
 import bugsnag from 'bugsnag-js';
 import bugsnagReact from 'bugsnag-react';
+import Promise from 'es6-promise';
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -16,7 +17,6 @@ if (process.env.NODE_ENV === 'production') {
 const root = document.getElementById('root');
 
 const render = (Component) => {
-
   ReactDOM.render(
     <AppContainer>
       <ErrorBoundary>
@@ -26,6 +26,8 @@ const render = (Component) => {
     root,
   );
 };
+
+Promise.polyfill();
 
 render(App);
 
