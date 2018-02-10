@@ -9,7 +9,7 @@ import Reception from '../organisms/Reception';
 import Rsvp from '../organisms/Rsvp';
 import Service from '../organisms/Service';
 
-import ScheduleModal from '../organisms/ScheduleModal';
+import TransportModal from '../organisms/TransportModal';
 
 const Home = () => (
   <Fragment>
@@ -28,7 +28,7 @@ const Home = () => (
       </Row>
     </Container>
     <Footer />
-    <ScheduleModal />
+    <TransportModal />
   </Fragment>
 );
 
