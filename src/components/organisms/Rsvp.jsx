@@ -77,8 +77,8 @@ class Rsvp extends PureComponent {
           lookupNames: camelCase(data),
           visibleSegment: 'NameList',
           showResetButton: data.length > 0,
-        }))
-        .finally(() => this.setState({ httpRequestInProgress: false })));
+          httpRequestInProgress: false,
+        })).catch(() => this.setState({ httpRequestInProgress: false })));
   }
 
   lookupInvitation(id) {
@@ -88,22 +88,25 @@ class Rsvp extends PureComponent {
           invite: camelCase(data),
           visibleSegment: 'CanYouMakeIt',
           showResetButton: true,
-        }))
-        .finally(() => this.setState({ httpRequestInProgress: false })));
+          httpRequestInProgress: false,
+        })).catch(() => this.setState({ httpRequestInProgress: false })));
   }
 
   postRsvpAccept(data) {
     this.setState({ httpRequestInProgress: true }, () =>
       post(`${process.env.API}invites/${this.state.invite.id}/accept`, data)
-        .then(() => this.setState({ showResetButton: false, visibleSegment: 'RsvpComplete' }))
-        .finally(() => this.setState({ httpRequestInProgress: false })));
+        .then(() => this.setState({
+          showResetButton: false,
+          visibleSegment: 'RsvpComplete',
+          httpRequestInProgress: false,
+        })).catch(() => this.setState({ httpRequestInProgress: false })));
   }
 
   postRsvpDecline(notes) {
     this.setState({ httpRequestInProgress: true }, () =>
       post(`${process.env.API}invites/${this.state.invite.id}/decline`, { notes })
         .then(() => this.setState({ showResetButton: false, visibleSegment: 'RsvpComplete' }))
-        .finally(() => this.setState({ httpRequestInProgress: false })));
+        .catch(() => this.setState({ httpRequestInProgress: false })));
   }
 
   resetInterface() {
