@@ -9,7 +9,7 @@ const Overlay = glamorous.div(`
   bg-white
   z-50
   overflow-y-scroll
-`, { paddingTop: '60px' });
+`);
 
 const ModalOverlay = ({ children }) => (
   <Overlay>{children}</Overlay>
