@@ -53,7 +53,10 @@
     "style-loader": "^0.19.0",
     "tailwindcss": "^0.4.0",
     "url-loader": "^0.6.2",
+    "version-updater": "^3.14.3",
     "webpack": "^3.8.1",
+    "webpack-bugsnag-plugin": "^0.1.4",
     "webpack-dev-server": "^2.9.5"
-  }
+  },
+  "version": "0.0.1"
 }
