@@ -82,7 +82,7 @@ class Guest extends PureComponent {
           value={this.state.dessert}
           required
         />
-        <Heading4><br />Pick a drink from the following:</Heading4>
+        <Heading4><br />Choose your favourite drink:</Heading4>
         <RadioGroup onChange={value => this.setState({ favouriteDrink: value })}>
           <RadioButton value="red-wine">
             <Serif>Red Wine</Serif>
