@@ -1,7 +1,11 @@
+require('dotenv').config();
+
 const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
+const git = require('git-rev-sync');
 
+const { BugsnagDeployPlugin, BugsnagSourceMapPlugin } = require('webpack-bugsnag-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -74,7 +78,7 @@ const config = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  config.devtool = 'cheap-module-source-map';
+  config.devtool = 'source-map';
 
   config.entry = path.resolve(__dirname, 'src/index.jsx');
 
@@ -108,6 +112,16 @@ if (process.env.NODE_ENV === 'production') {
         },
         extensions: ['ejs', 'jsx'],
       }],
+    }),
+    new BugsnagDeployPlugin({
+      apiKey: process.env.BUGSNAG_API_KEY,
+      releaseStage: process.env.NODE_ENV,
+      appVersion: git.short(),
+    }),
+    new BugsnagSourceMapPlugin({
+      apiKey: process.env.BUGSNAG_API_KEY,
+      publicPath: process.env.PUBLIC_PATH,
+      appVersion: git.short(),
     }),
   );
 } else {
