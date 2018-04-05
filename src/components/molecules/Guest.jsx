@@ -20,24 +20,13 @@ class Guest extends PureComponent {
     };
   }
 
-  render() {
+  getMealChoices() {
+    if (this.props.inviteClass === 'evening') {
+      return null;
+    }
+
     return (
       <Fragment>
-        <InputWrapper>
-          <InputLabel>Name</InputLabel>
-          <InputText
-            name={`invitees.${this.props.id}.name`}
-            value={this.props.name}
-            required
-          />
-        </InputWrapper>
-        <InputWrapper>
-          <InputLabel>Does this person have any special dietary requirements?</InputLabel>
-          <InputText
-            name={`invitees.${this.props.id}.dietaryRequirements`}
-            placeholder="e.g. 'a nut allergy'"
-          />
-        </InputWrapper>
         <Heading4><br />Choose a main course:</Heading4>
         <RadioGroup onChange={value => this.setState({ main: value })}>
           <RadioButton value="beef">
@@ -82,6 +71,29 @@ class Guest extends PureComponent {
           value={this.state.dessert}
           required
         />
+      </Fragment>
+    )
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <InputWrapper>
+          <InputLabel>Name</InputLabel>
+          <InputText
+            name={`invitees.${this.props.id}.name`}
+            value={this.props.name}
+            required
+          />
+        </InputWrapper>
+        <InputWrapper>
+          <InputLabel>Does this person have any special dietary requirements?</InputLabel>
+          <InputText
+            name={`invitees.${this.props.id}.dietaryRequirements`}
+            placeholder="e.g. 'a nut allergy'"
+          />
+        </InputWrapper>
+        {this.getMealChoices()}
         <Heading4><br />Choose your favourite drink:</Heading4>
         <RadioGroup onChange={value => this.setState({ favouriteDrink: value })}>
           <RadioButton value="red-wine">
@@ -125,6 +137,7 @@ class Guest extends PureComponent {
 
 Guest.propTypes = {
   id: PropTypes.number.isRequired,
+  inviteClass: PropTypes.oneOf(['daytime', 'evening']).isRequired,
   name: PropTypes.string.isRequired,
 };
 

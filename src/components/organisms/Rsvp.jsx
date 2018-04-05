@@ -61,7 +61,7 @@ class Rsvp extends PureComponent {
       case 'RsvpForm':
         return (
           <RsvpForm
-            names={this.state.invite.invitees}
+            invite={this.state.invite}
             onSubmit={data => this.postRsvpAccept(data)}
           />
         );
