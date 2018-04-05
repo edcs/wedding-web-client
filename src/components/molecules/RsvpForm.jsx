@@ -29,6 +29,38 @@ class RsvpForm extends PureComponent {
     this.setState({ submitButtonDisabled: false });
   }
 
+  getTransportRequired() {
+    if (this.props.invite.inviteClass === 'evening') {
+      return null;
+    }
+
+    return (
+      <Fragment>
+        <Heading4>
+          <br />
+          Would you like transport between the church and the reception:
+        </Heading4>
+        <RadioGroup onChange={value => this.setState({ transport: value })}>
+          <RadioButton value="yes">
+            <Serif>
+              Yes please
+            </Serif>
+          </RadioButton>
+          <RadioButton value="no">
+            <Serif>
+              No thanks, I'll make my own way
+            </Serif>
+          </RadioButton>
+        </RadioGroup>
+        <InputHidden
+          name="transport"
+          value={this.state.transport}
+          required
+        />
+      </Fragment>
+    );
+  }
+
   render() {
     return (
       <Fragment>
@@ -40,30 +72,10 @@ class RsvpForm extends PureComponent {
           onSubmit={data => this.onSubmitHandler(data)}
           onValid={() => this.onValidHandler()}
         >
-          {this.props.names.map(({ id, name }) => (
-            <Guest id={id} name={name} />
+          {this.props.invite.invitees.map(({ id, name, inviteClass }) => (
+            <Guest id={id} name={name} inviteClass={inviteClass} />
           ))}
-          <Heading4>
-            <br />
-            Would you like transport between the church and the reception:
-          </Heading4>
-          <RadioGroup onChange={value => this.setState({ transport: value })}>
-            <RadioButton value="yes">
-              <Serif>
-                Yes please
-              </Serif>
-            </RadioButton>
-            <RadioButton value="no">
-              <Serif>
-                No thanks, I'll make my own way
-              </Serif>
-            </RadioButton>
-          </RadioGroup>
-          <InputHidden
-            name="transport"
-            value={this.state.transport}
-            required
-          />
+          {this.getTransportRequired()}
           <ButtonPrimaryBig disabled={this.state.submitButtonDisabled}>
             Send RSVP
           </ButtonPrimaryBig>
@@ -74,12 +86,12 @@ class RsvpForm extends PureComponent {
 }
 
 RsvpForm.propTypes = {
-  names: PropTypes.array,
+  invite: PropTypes.object,
   onSubmit: PropTypes.func,
 };
 
 RsvpForm.defaultProps = {
-  names: [],
+  invite: { invitees: [] },
   onSubmit: () => {},
 };
 
